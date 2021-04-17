@@ -11,8 +11,7 @@ app.use(express.json());
 
 const characters =[
     {
-        routeName: '',
-        name:''
+        
 
     },
 
@@ -20,7 +19,7 @@ const characters =[
 
 //Routes for HTML pages
 
-app.get('/',(req,res)=> res.sendFile(path.join(__dirname, 'home.html')));
+app.get('/home',(req,res)=> res.sendFile(path.join(__dirname, '/pages/home.html')));
 app.get('/',(req,res)=> res.sendFile(path.join(__dirname, 'tables.html')));
 app.get('/',(req,res)=> res.sendFile(path.join(__dirname, 'reserve.html')));
 

@@ -6,19 +6,18 @@ const tableInfo = require('./data/tableInfo');
 const waitingList = require('./data/waitingListInfo');
 
 const app = express();
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 
 //Routes for HTML pages
 
-app.get('/home',(req,res)=> res.sendFile(path.join(__dirname, './pages/home.html')));
+
 app.get('/tables',(req,res)=> res.sendFile(path.join(__dirname, './pages/tables.html')));
 app.get('/reserve',(req,res)=> res.sendFile(path.join(__dirname, './pages/reserve.html')));
+app.get('*',(req,res)=> res.sendFile(path.join(__dirname, './pages/home.html')));
 
- // If no matching route is found default to home
-//  app.get('*', (req, res) => {res.sendFile(path.join(__dirname, '../public/home.html'));});
 
 
 //Reservations. Should display all jsons for Reservations
@@ -29,12 +28,7 @@ app.get('/api/waitlist',(req,res)=> res.json(waitingList));
 
 
 //api post data
-// app.post('/api/waitlist',(req,res) =>{
-//     const newPerson = req.body;
-//     waitingList.push(newPerson);
-//     res.json(newPerson);
-    
-// });
+
 
 app.post('/api/tables',(req,res) =>{
     const newTable = req.body;
@@ -46,7 +40,6 @@ app.post('/api/tables',(req,res) =>{
     else {
         waitingList.push(newTable);
         res.json(false);
-
     };
 
 });
@@ -58,7 +51,6 @@ app.post('/api/clear', (req, res) => {
 
     res.json({ ok: true });
   });
-
 
 
 // code to start the server

@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Reservation Page</title>
-​
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
-  </head>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Reservation Page</title>
+  ​
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+</head>
 ​
   <body>
     <div class="container">
@@ -30,53 +31,54 @@
           </a>
         </div>
       </div>
-      <div class="row">
-        <div class="col-lg-12">
-          <!-- Reservation Page -->
-          <div class="card">
-            <div class="card-header">
-              Table Reservation
-            </div>
-            <div class="card-body">
-              <form role="form">
-                <div class="form-group">
-                  <label for="reserve-name">Name</label>
-                  <input type="text" class="form-control" id="reserve-name" />
-                </div>
-                <div class="form-group">
-                  <label for="reserve-phone">Phone Number</label>
-                  <input type="text" class="form-control" id="reserve-phone" />
-                </div>
-                <div class="form-group">
-                  <label for="reserve-email">Email</label>
-                  <input type="text" class="form-control" id="reserve-email" />
-                </div>
-                <div class="form-group">
-                  <label for="reserve-unique-id">Unique ID</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="reserve-unique-id"
-                  />
-                </div>
-                <button type="submit" class="btn btn-primary submit">
-                  Submit
-                </button>
-              </form>
-            </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <!-- Reservation Page -->
+        <div class="card">
+          <div class="card-header">
+            Table Reservation
+          </div>
+          <div class="card-body">
+            <form role="form">
+              <div class="form-group">
+                <label for="reserve-name">Name</label>
+                <input type="text" class="form-control" id="reserve-name" />
+              </div>
+              <div class="form-group">
+                <label for="reserve-phone">Phone Number</label>
+                <input type="text" class="form-control" id="reserve-phone" />
+              </div>
+              <div class="form-group">
+                <label for="reserve-email">Email</label>
+                <input type="text" class="form-control" id="reserve-email" />
+              </div>
+              <div class="form-group">
+                <label for="reserve-unique-id">Unique ID</label>
+                <input type="text" class="form-control" id="reserve-unique-id" />
+              </div>
+              <button type="submit" class="btn btn-primary submit">
+                Submit
+              </button>
+            </form>
           </div>
         </div>
       </div>
-​
-      <footer class="footer">
-        <div class="container">
-          <p>
-            <a href="/api/tables">API Table Link</a> |
-            <a href="/api/waitlist">API Wait List</a>
-          </p>
-        </div>
-      </footer>
     </div>
+    ​
+    <footer class="footer">
+      <div class="container">
+        <p>
+          <a href="/api/tables">API Table Link</a> |
+          <a href="/api/waitlist">API Wait List</a>
+        </p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const tableInfo = require('./data/tableInfo');
+    const waitingList = require('./data/waitingListInfo');
 
     <script type="text/javascript">
 
@@ -84,18 +86,18 @@
   submitBtn.addEventListener('click', (e) => {
     e.preventDefault();
 
-    // Grab form elements
-    let newReservation = {
-      customerName: document.getElementById('reserve-name').value.trim(),
-      phoneNumber: document.getElementById('reserve-phone').value.trim(),
-      customerEmail: document.getElementById('reserve-email').value.trim(),
-      customerID: document.getElementById('reserve-unique-id').value.trim(),
-    };
+      // Grab form elements
+      let newReservation = {
+        customerName: document.getElementById('reserve-name').value.trim(),
+        phoneNumber: document.getElementById('reserve-phone').value.trim(),
+        customerEmail: document.getElementById('reserve-email').value.trim(),
+        customerID: document.getElementById('reserve-unique-id').value.trim(),
+      };
 
-    console.log('submitBtn.onclick -> newReservation', newReservation);
+      console.log('submitBtn.onclick -> newReservation', newReservation);
 
-    
-    fetch('/api/tables', {
+
+      fetch('/api/tables', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -105,14 +107,14 @@
         .then((response) => response.json())
         .then((data) => {
           if (data) {
-            
-  
+
+
             alert('Yay! You are officially booked!');
           } else {
             // Otherwise, tell the  user they are on the wait list
-  
+
             alert('Sorry you are on the wait list');
-  
+
             // Clear the form
             document.getElementById('reserve-name').value = '';
             document.getElementById('reserve-phone').value = '';
@@ -124,6 +126,7 @@
           console.error('Error:', error);
         });
     });
-    </script>
-  </body>
+  </script>
+</body>
+
 </html>

@@ -2,20 +2,14 @@
 
 const express = require('express');
 const path = require('path');
+const tableInfo = require('./data/tableInfo');
+const waitingList = require('./data/waitingListInfo');
 
 const app = express();
 const PORT = 8000;
 
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
-
-const characters =[
-    {
-        
-
-    },
-
-]
 
 //Routes for HTML pages
 
@@ -25,7 +19,14 @@ app.get('/reserve',(req,res)=> res.sendFile(path.join(__dirname, '/pages/reserve
 
 
 //Reservations. Should display all jsons for Reservations
-app.get('/api/reservations',(req,res)=> res.json(reservations));
+app.get('/api/waitlist',(req,res)=> res.json(waitingList));
+app.get('/api/tables',(req,res)=> res.json(tableInfo));
+
+//api post data
+app.post('/api/waitlist',(req,res) =>{
+    const newPerson = req.body;
+    
+});
 
 
 

@@ -20,8 +20,8 @@ const characters =[
 //Routes for HTML pages
 
 app.get('/home',(req,res)=> res.sendFile(path.join(__dirname, '/pages/home.html')));
-app.get('/',(req,res)=> res.sendFile(path.join(__dirname, 'tables.html')));
-app.get('/',(req,res)=> res.sendFile(path.join(__dirname, 'reserve.html')));
+app.get('/tables',(req,res)=> res.sendFile(path.join(__dirname, '/pages/tables.html')));
+app.get('/reserve',(req,res)=> res.sendFile(path.join(__dirname, '/pages/reserve.html')));
 
 
 //Reservations. Should display all jsons for Reservations

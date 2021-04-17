@@ -70,9 +70,12 @@
   </body>
 
   <script>
+  const tableInfo = require('./data/tableInfo');
+  const waitingList = require('./data/waitingListInfo');
+
   const runTableQuery = () => {
     // Fetch function GET the data associated with it (initially set to localhost)
-    fetch('/api/tables', {
+    fetch('./pagesJS/tables.js', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -127,7 +130,7 @@
   };
 
   const runWaitListQuery = () => {
-    fetch('/api/reserve', {
+    fetch('./pagesJS/reserve.js', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

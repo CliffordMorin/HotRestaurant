@@ -9,27 +9,27 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 </head>
 ​
-
-<body>
-  <div class="container">
-    <div class="jumbotron">
-      <h1 class="text-center">
-        <span class="fa fa-fire"></span> Hot Restaurant
-      </h1>
-      <hr />
-      <h2 class="text-center">Make your reservation</h2>
-      <br />
-      <div class="text-center">
-        <a href="/tables">
-          <button class="btn btn-lg btn-primary">
-            <span class="fa fa-list-alt"></span> View Tables
-          </button>
-        </a>
-        <a href="/">
-          <button class="btn btn-lg btn-default">
-            <span class="fa fa-home"></span>
-          </button>
-        </a>
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+        <h1 class="text-center">
+          <span class="fa fa-fire"></span> Hot Restaurant
+        </h1>
+        <hr />
+        <h2 class="text-center">Make your reservation</h2>
+        <br />
+        <div class="text-center">
+          <a href="/tables">
+            <button class="btn btn-lg btn-primary">
+              <span class="fa fa-list-alt"></span> View Tables
+            </button>
+          </a>
+          <a href="/home">
+            <button class="btn btn-lg btn-default">
+              <span class="fa fa-home"></span>
+            </button>
+          </a>
+        </div>
       </div>
     </div>
     <div class="row">
@@ -80,9 +80,11 @@
     const tableInfo = require('./data/tableInfo');
     const waitingList = require('./data/waitingListInfo');
 
-    const submitBtn = document.querySelector('.submit');
-    submitBtn.addEventListener('click', (e) => {
-      e.preventDefault();
+    <script type="text/javascript">
+
+        const submitBtn = document.querySelector('.submit');
+  submitBtn.addEventListener('click', (e) => {
+    e.preventDefault();
 
       // Grab form elements
       let newReservation = {

@@ -24,7 +24,7 @@
               <span class="fa fa-credit-card"></span> Make Reservation
             </button>
           </a>
-          <a href="/">
+          <a href="/home">
             <button class="btn btn-lg btn-default">
               <span class="fa fa-home"></span>
             </button>
@@ -68,10 +68,8 @@
       </footer>
     </div>
   </body>
-
-  <script>
-  const tableInfo = require('./data/tableInfo');
-  const waitingList = require('./data/waitingListInfo');
+  
+  <script type="text/javascript">
 
   const runTableQuery = () => {
     // Fetch function GET the data associated with it (initially set to localhost)
@@ -130,7 +128,7 @@
   };
 
   const runWaitListQuery = () => {
-    fetch('./pagesJS/reserve.js', {
+    fetch('/api/waitlist', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

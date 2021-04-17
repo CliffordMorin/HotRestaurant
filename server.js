@@ -27,8 +27,6 @@ app.get('/api/tables',(req,res)=> res.json(tableInfo));
 
 app.post('/api/tables',(req,res) =>{
     const newTable = req.body;
-    tableInfo.push(newTable);
-    res.json(newTable);
 
     if (tableInfo.length < 5){
     tableInfo.push(newTable);

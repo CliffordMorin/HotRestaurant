@@ -12,6 +12,7 @@ const submitBtn = document.querySelector('.submit');
 
     console.log('submitBtn.onclick -> newReservation', newReservation);
 
+    
     fetch('/api/tables', {
         method: 'POST',
         headers: {

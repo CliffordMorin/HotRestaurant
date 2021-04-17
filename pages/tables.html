@@ -24,7 +24,7 @@
               <span class="fa fa-credit-card"></span> Make Reservation
             </button>
           </a>
-          <a href="/home">
+          <a href="/">
             <button class="btn btn-lg btn-default">
               <span class="fa fa-home"></span>
             </button>
@@ -73,7 +73,7 @@
 
   const runTableQuery = () => {
     // Fetch function GET the data associated with it (initially set to localhost)
-    fetch('./pagesJS/tables.js', {
+    fetch('/api/tables', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

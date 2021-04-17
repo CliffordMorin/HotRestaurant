@@ -16,7 +16,7 @@ app.use(express.json());
 
 app.get('/tables',(req,res)=> res.sendFile(path.join(__dirname, './pages/tables.html')));
 app.get('/reserve',(req,res)=> res.sendFile(path.join(__dirname, './pages/reserve.html')));
-app.get('*',(req,res)=> res.sendFile(path.join(__dirname, './pages/home.html')));
+app.get('/',(req,res)=> res.sendFile(path.join(__dirname, './pages/home.html')));
 
 
 
@@ -34,8 +34,8 @@ app.post('/api/tables',(req,res) =>{
     const newTable = req.body;
 
     if (tableInfo.length < 5){
-    tableInfo.push(newTable);
-    res.json(true);
+        tableInfo.push(newTable);
+        res.json(true);
     }
     else {
         waitingList.push(newTable);

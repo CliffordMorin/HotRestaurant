@@ -10,13 +10,13 @@ const PORT = process.env.PORT || 8000;
 
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
-
+app.use(express.static("public"));
 //Routes for HTML pages
 
 
-app.get('/tables',(req,res)=> res.sendFile(path.join(__dirname, './pages/tables.html')));
-app.get('/reserve',(req,res)=> res.sendFile(path.join(__dirname, './pages/reserve.html')));
-app.get('/',(req,res)=> res.sendFile(path.join(__dirname, './pages/home.html')));
+app.get('/tables',(req,res)=> res.sendFile(path.join(__dirname, './public/tables.html')));
+app.get('/reserve',(req,res)=> res.sendFile(path.join(__dirname, './public/reserve.html')));
+app.get('/',(req,res)=> res.sendFile(path.join(__dirname, './public/home.html')));
 
 
 
